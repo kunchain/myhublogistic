@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Myhublogistic — One hub for orders, purchasing, customers & tracking</title>
+<meta name="description" content="Myhublogistic unifies order management, purchasing, customer relationships and real-time tracking in one intelligent platform. Built for logistics teams that refuse to slow down.">
+<meta name="theme-color" content="#080F24">
+<meta property="og:title" content="Myhublogistic — Every order, every mile, one hub">
+<meta property="og:description" content="Unify orders, purchasing, customers and live tracking in one beautiful, intelligent platform.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235B6CFF'/%3E%3Cstop offset='1' stop-color='%232FE3C2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='36' height='36' rx='11' fill='url(%23g)'/%3E%3Cpath d='M12 28 L20 20 L28 12' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='28' r='3' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Myhublogistic",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Logistics platform for order, purchase, customer and tracking management.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "2314" }
+}
+</script>
+<style>
+/* ============================================================
+   MYHUBLOGISTIC — DESIGN SYSTEM
+   ============================================================ */
+:root{
+  /* Ink (dark) */
+  --ink-950:#060C1E;
+  --ink-900:#080F24;
+  --ink-850:#0B1531;
+  --ink-800:#0F1B3D;
+  --ink-700:#16234C;
+  /* Brand */
+  --brand:#5B6CFF;
+  --brand-deep:#4353E8;
+  --aqua:#2FE3C2;
+  --sky:#38C8F4;
+  --amber:#FFB020;
+  --rose:#FF6B8B;
+  --green:#22C58B;
+  /* Light surfaces */
+  --bg-light:#F6F8FD;
+  --bg-light-2:#EEF2FA;
+  --card-light:#FFFFFF;
+  --border-light:#E5EAF5;
+  /* Text */
+  --text-dark:#0B1230;
+  --muted-dark:#5A6482;
+  --text-light:#F2F5FF;
+  --muted-light:#A4AFCE;
+  /* Gradients */
+  --grad-brand:linear-gradient(120deg,#5B6CFF 0%,#38C8F4 52%,#2FE3C2 100%);
+  --grad-brand-soft:linear-gradient(120deg,rgba(91,108,255,.14),rgba(47,227,194,.14));
+  --grad-text:linear-gradient(100deg,#8F9EFF 0%,#5FE0F0 50%,#4BF0CE 100%);
+  /* Misc */
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --r-xl:28px;
+  --r-lg:20px;
+  --r-md:14px;
+  --r-sm:10px;
+  --shadow-sm:0 2px 8px -2px rgba(11,18,48,.08);
+  --shadow-md:0 12px 32px -12px rgba(11,18,48,.14);
+  --shadow-lg:0 28px 64px -24px rgba(11,18,48,.22);
+  --shadow-glow:0 12px 40px -10px rgba(91,108,255,.45);
+  --nav-h:76px;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  font-family:var(--font);
+  font-size:16px;line-height:1.6;
+  color:var(--text-dark);
+  background:var(--ink-900);
+  overflow-x:hidden;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-tap-highlight-color:transparent;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+::selection{background:#5B6CFF;color:#fff}
+:focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:4px}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--ink-950)}
+::-webkit-scrollbar-thumb{background:#2A3866;border-radius:99px;border:2px solid var(--ink-950)}
+::-webkit-scrollbar-thumb:hover{background:#3A4C86}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:fixed;top:-64px;left:16px;z-index:3000;background:var(--brand);color:#fff;padding:10px 18px;border-radius:10px;font-weight:600;transition:top .25s var(--ease)}
+.skip-link:focus{top:12px}
+
+/* Film grain */
+.grain{position:fixed;inset:0;z-index:2200;pointer-events:none;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ---------- Layout helpers ---------- */
+.container{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+.section{position:relative;padding:clamp(76px,9vw,132px) 0}
+.section[id]{scroll-margin-top:calc(var(--nav-h) + 40px)}
+.section-head{max-width:740px;margin:0 auto clamp(44px,6vw,72px);text-align:center}
+.section-head.left{margin-left:0;text-align:left}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:99px;margin-bottom:22px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 22%,transparent)}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.025em;font-weight:800;text-wrap:balance}
+.h2{font-size:clamp(1.9rem,3.8vw,2.9rem)}
+.lede{font-size:clamp(1.02rem,1.5vw,1.2rem);margin-top:18px;line-height:1.7}
+.grad-text{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted-dark{color:var(--muted-dark)}
+.muted-light{color:var(--muted-light)}
+
+/* ---------- Buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:650;font-size:1rem;letter-spacing:-.01em;line-height:1;
+  padding:16px 28px;border-radius:14px;border:1px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease);}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn .ico{transition:transform .35s var(--ease)}
+.btn:hover .ico{transform:translateX(4px)}
+.btn-primary{background:var(--grad-brand);background-size:150% 150%;color:#fff;box-shadow:var(--shadow-glow);overflow:hidden}
+.btn-primary:hover{box-shadow:0 18px 48px -10px rgba(91,108,255,.6);background-position:80% 50%}
+.btn-ghost{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn-ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.28)}
+.btn-outline{background:#fff;border-color:#D9E0EF;color:var(--text-dark);box-shadow:var(--shadow-sm)}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand-deep);box-shadow:var(--shadow-md)}
+.btn-sm{padding:11px 20px;font-size:.92rem;border-radius:11px}
+.btn-lg{padding:19px 36px;font-size:1.06rem;border-radius:16px}
+.btn-play{width:46px;height:46px;padding:0;border-radius:50%;flex:none}
+
+/* Glass surfaces */
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+
+/* ---------- Reveal-on-scroll system ---------- */
+@media (prefers-reduced-motion:no-preference){
+  [data-reveal]{opacity:0;transform:translateY(30px);filter:blur(5px);
+    transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);
+    transition-delay:calc(var(--d,0) * 95ms)}
+  [data-reveal].is-visible{opacity:1;transform:none;filter:none}
+  [data-reveal="left"]{transform:translateX(-36px)}
+  [data-reveal="right"]{transform:translateX(36px)}
+  [data-reveal="zoom"]{transform:scale(.92)}
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{position:fixed;inset:18px 0 auto 0;z-index:1000;width:min(1180px,calc(100% - 32px));margin-inline:auto;
+  border-radius:18px;border:1px solid transparent;
+  transition:background-color .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),inset .4s var(--ease)}
+.nav.is-scrolled{background:rgba(8,15,36,.78);border-color:rgba(255,255,255,.09);
+  -webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);
+  box-shadow:0 16px 44px -16px rgba(4,8,22,.6)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px;padding:0 12px 0 20px}
+.brand{display:inline-flex;align-items:center;gap:11px;color:#fff}
+.brand-mark{transition:transform .5s var(--ease-spring)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.06)}
+.brand-name{font-size:1.18rem;font-weight:800;letter-spacing:-.03em;color:#fff}
+.brand-name b{font-weight:800;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{position:relative;padding:10px 15px;font-size:.95rem;font-weight:550;color:var(--muted-light);border-radius:10px;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:15px;right:15px;bottom:5px;height:2px;border-radius:2px;background:var(--grad-brand);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+
+/* Burger */
+.nav-burger{display:none;position:relative;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);flex:none}
+.nav-burger span{position:absolute;left:12px;right:12px;height:2px;border-radius:2px;background:#fff;transition:transform .4s var(--ease),opacity .3s,top .4s var(--ease)}
+.nav-burger span:nth-child(1){top:16px}
+.nav-burger span:nth-child(2){top:22px;width:18px}
+.nav-burger span:nth-child(3){top:28px}
+.nav-burger[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+/* Mobile menu */
+.mobile-menu{display:none;overflow:hidden;max-height:0;opacity:0;border-radius:18px;border:1px solid transparent;
+  transition:max-height .55s var(--ease),opacity .4s var(--ease),padding .4s var(--ease)}
+.mobile-menu.is-open{max-height:520px;opacity:1;background:rgba(8,15,36,.92);border-color:rgba(255,255,255,.1);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);
+  box-shadow:0 24px 60px -18px rgba(4,10,32,.85)}
+.mobile-menu-inner{display:flex;flex-direction:column;gap:2px;padding:12px 14px 18px}
+.mobile-menu a.m-link{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;border-radius:12px;color:var(--text-light);font-weight:600;font-size:1.05rem;transition:background .3s}
+.mobile-menu a.m-link:hover{background:rgba(255,255,255,.07)}
+.mobile-menu .m-cta{display:flex;flex-direction:column;gap:10px;padding:14px 6px 4px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:calc(var(--nav-h) + clamp(64px,9vw,110px)) 0 clamp(70px,8vw,110px);overflow:hidden;
+  background:radial-gradient(1200px 700px at 50% -220px,#16244E 0%,rgba(22,36,78,0) 62%),linear-gradient(180deg,var(--ink-900) 0%,var(--ink-950) 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(900px 520px at 50% -8%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(900px 520px at 50% -8%,#000 0%,transparent 72%)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.5;will-change:transform}
+.blob-1{width:620px;height:620px;top:-260px;left:-180px;background:radial-gradient(circle,rgba(91,108,255,.55),transparent 65%);animation:drift 16s ease-in-out infinite alternate}
+.blob-2{width:540px;height:540px;top:-160px;right:-160px;background:radial-gradient(circle,rgba(47,227,194,.38),transparent 65%);animation:drift 19s ease-in-out -6s infinite alternate-reverse}
+.blob-3{width:460px;height:460px;bottom:-220px;left:34%;background:radial-gradient(circle,rgba(56,200,244,.3),transparent 65%);animation:drift 22s ease-in-out -11s infinite alternate}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(60px,40px,0) scale(1.12)}}
+
+.hero-content{position:relative;text-align:center;max-width:900px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 8px 8px 16px;border-radius:99px;font-size:.88rem;font-weight:550;color:#DDE5FF;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 8px 28px -12px rgba(91,108,255,.4);margin-bottom:30px;
+  transition:border-color .3s,background .3s,transform .35s var(--ease)}
+.hero-badge:hover{transform:translateY(-2px);border-color:rgba(91,108,255,.55);background:rgba(91,108,255,.12)}
+.hero-badge .tag{background:var(--grad-brand);color:#fff;font-size:.72rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:99px}
+.hero-badge .arr{color:var(--muted-light);transition:transform .3s,color .3s}
+.hero-badge:hover .arr{transform:translateX(3px);color:#fff}
+.hero h1{font-size:clamp(2.5rem,6.2vw,4.35rem);font-weight:850;color:#fff;letter-spacing:-.035em;margin-bottom:26px}
+.hero .lede{color:var(--muted-light);max-width:660px;margin:0 auto 40px;font-size:clamp(1.06rem,1.7vw,1.27rem)}
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:22px}
+.hero-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;font-size:.88rem;color:#8B97BA;font-weight:500}
+.hero-trust span{display:inline-flex;align-items:center;gap:8px}
+.hero-trust svg{color:var(--aqua);flex:none}
+
+/* ---------- Dashboard mockup ---------- */
+.hero-visual{position:relative;max-width:1060px;margin:clamp(52px,7vw,84px) auto 0;perspective:1600px}
+.dash{position:relative;border-radius:22px;border:1px solid rgba(255,255,255,.12);overflow:hidden;
+  background:linear-gradient(180deg,#0E1836 0%,#0A1128 100%);
+  box-shadow:0 40px 120px -32px rgba(4,10,32,.9),0 0 0 1px rgba(255,255,255,.04),0 -20px 90px -40px rgba(91,108,255,.35);
+  transform-style:preserve-3d;transition:transform .5s var(--ease);
+  will-change:transform}
+.dash::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:5;
+  background:linear-gradient(115deg,rgba(255,255,255,.09) 0%,transparent 28%);}
+.dash-chrome{display:flex;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025)}
+.dash-dots{display:flex;gap:7px}
+.dash-dots i{width:11px;height:11px;border-radius:50%}
+.dash-dots i:nth-child(1){background:#FF5F57}.dash-dots i:nth-child(2){background:#FEBC2E}.dash-dots i:nth-child(3){background:#28C840}
+.dash-url{flex:1;max-width:340px;margin-inline:auto;display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:.78rem;color:#8B97BA;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:6px 14px}
+.dash-live{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;color:#4BF0CE;letter-spacing:.08em;text-transform:uppercase}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#2FE3C2;box-shadow:0 0 0 0 rgba(47,227,194,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,227,194,.55)}70%{box-shadow:0 0 0 9px rgba(47,227,194,0)}100%{box-shadow:0 0 0 0 rgba(47,227,194,0)}}
+
+.dash-body{display:grid;grid-template-columns:212px 1fr;min-height:520px}
+/* Sidebar */
+.dash-side{border-right:1px solid rgba(255,255,255,.07);padding:18px 12px;display:flex;flex-direction:column;gap:4px;background:rgba(255,255,255,.015)}
+.side-label{font-size:.66rem;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:#5F6D96;padding:10px 12px 6px}
+.side-item{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:10px;font-size:.85rem;font-weight:550;color:#8B97BA;transition:background .25s,color .25s}
+.side-item svg{flex:none;opacity:.75}
+.side-item.active{background:linear-gradient(90deg,rgba(91,108,255,.22),rgba(47,227,194,.08));color:#fff;box-shadow:inset 0 0 0 1px rgba(91,108,255,.35)}
+.side-item.active svg{opacity:1;color:#8F9EFF}
+.side-sep{height:1px;background:rgba(255,255,255,.07);margin:10px 4px}
+.side-user{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;flex:none;font-size:.72rem;font-weight:750;color:#fff;letter-spacing:.02em}
+.avatar-1{background:linear-gradient(135deg,#5B6CFF,#38C8F4)}
+.avatar-2{background:linear-gradient(135deg,#F59E0B,#FF6B8B)}
+.avatar-3{background:linear-gradient(135deg,#22C58B,#2FE3C2)}
+.avatar-4{background:linear-gradient(135deg,#8B5CF6,#5B6CFF)}
+.side-user .nm{font-size:.8rem;font-weight:650;color:#E4EAFF;line-height:1.25}
+.side-user .rl{font-size:.68rem;color:#7B87AC}
+/* Main */
+.dash-main{padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.dash-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.dash-title{font-size:1.06rem;font-weight:750;color:#F2F5FF;letter-spacing:-.02em}
+.dash-head .sub{font-size:.76rem;color:#7B87AC;margin-top:2px}
+.chips{display:flex;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:4px;border-radius:11px}
+.chip{padding:6px 14px;border-radius:8px;font-size:.76rem;font-weight:600;color:#8B97BA;transition:all .25s}
+.chip.active{background:var(--grad-brand);color:#fff;box-shadow:0 4px 14px -4px rgba(91,108,255,.55)}
+.mini-btn{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:650;color:#fff;padding:8px 14px;border-radius:9px;background:rgba(91,108,255,.25);border:1px solid rgba(91,108,255,.5);transition:background .25s}
+.mini-btn:hover{background:rgba(91,108,255,.45)}
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.075);border-radius:14px;padding:14px 15px;transition:transform .35s var(--ease),border-color .35s,background .35s}
+.kpi:hover{transform:translateY(-3px);border-color:rgba(91,108,255,.45);background:rgba(91,108,255,.07)}
+.kpi .k-label{font-size:.7rem;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:#7B87AC;margin-bottom:8px}
+.kpi .k-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.kpi .k-val{font-size:1.32rem;font-weight:800;color:#F2F5FF;letter-spacing:-.03em;line-height:1}
+.kpi .k-delta{display:inline-flex;align-items:center;gap:3px;font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:6px;margin-top:9px}
+.k-delta.up{color:#4BF0CE;background:rgba(34,197,139,.14)}
+.k-delta.down{color:#FF9FB6;background:rgba(255,107,139,.14)}
+.kpi svg{flex:none;opacity:.9}
+/* Panels */
+.dash-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}
+.panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.075);border-radius:16px;padding:16px 18px;min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.panel-head .ph-title{font-size:.86rem;font-weight:700;color:#E4EAFF;letter-spacing:-.01em}
+.legend{display:flex;gap:14px;font-size:.68rem;color:#8B97BA;font-weight:550}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:5px;vertical-align:0}
+.lg-brand{background:#5B6CFF}.lg-aqua{background:#2FE3C2}
+/* Chart */
+.chart-wrap{position:relative}
+.chart-tip{position:absolute;top:8px;right:6px;background:rgba(14,24,54,.92);border:1px solid rgba(91,108,255,.4);border-radius:10px;padding:8px 12px;font-size:.68rem;color:#CBD5F5;box-shadow:0 10px 30px -10px rgba(4,10,32,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.chart-tip b{display:block;font-size:.8rem;color:#fff;margin-bottom:1px}
+.chart-tip .up-t{color:#4BF0CE;font-weight:700}
+.chart-line{stroke-dasharray:1400;stroke-dashoffset:1400}
+.chart-area{opacity:0}
+.chart-line-2{stroke-dasharray:4 7;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .is-visible .chart-line{animation:draw 2.2s .5s var(--ease) forwards}
+  .is-visible .chart-area{animation:fadein 1.4s 1.5s ease forwards}
+  .is-visible .chart-line-2{animation:fadein 1s 1.9s ease forwards}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+/* Fleet */
+.fleet-row{display:flex;flex-direction:column;gap:11px}
+.fleet-item{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:11px;padding:9px 10px;border-radius:11px;transition:background .25s}
+.fleet-item:hover{background:rgba(255,255,255,.045)}
+.fleet-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(91,108,255,.16);color:#9FB0FF;flex:none}
+.fleet-item .f-route{font-size:.76rem;font-weight:650;color:#DDE5FF;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fleet-item .f-id{font-size:.66rem;color:#7B87AC}
+.bar{height:4px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden;margin-top:5px}
+.bar>span{display:block;height:100%;border-radius:99px;background:var(--grad-brand);width:0;transition:width 1.4s var(--ease) .7s}
+.is-visible .bar>span{width:var(--w,60%)}
+.show-panel.is-active .bar>span{width:var(--w,60%)}
+.eta{font-size:.64rem;font-weight:750;padding:4px 9px;border-radius:6px;white-space:nowrap}
+.eta.ok{color:#4BF0CE;background:rgba(34,197,139,.13)}
+.eta.warn{color:#FFC966;background:rgba(255,176,32,.13)}
+/* Orders table */
+.tbl{width:100%;border-collapse:collapse;font-size:.78rem}
+.tbl th{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#5F6D96;font-weight:750;text-align:left;padding:6px 10px}
+.tbl td{padding:10px;border-top:1px solid rgba(255,255,255,.055);color:#C6CFF0;font-weight:520;white-space:nowrap}
+.tbl .o-id{color:#9FB0FF;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.74rem}
+.tbl .route-cell{display:flex;align-items:center;gap:7px;color:#AAB6DB}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:750;padding:4px 10px;border-radius:99px;letter-spacing:.02em}
+.pill i{width:5px;height:5px;border-radius:50%;background:currentColor}
+.pill.ok{color:#4BF0CE;background:rgba(34,197,139,.13)}
+.pill.move{color:#9FB0FF;background:rgba(91,108,255,.16)}
+.pill.proc{color:#FFC966;background:rgba(255,176,32,.13)}
+.pill.exc{color:#FF9FB6;background:rgba(255,107,139,.13)}
+/* Floating cards */
+.float-card{position:absolute;z-index:6;display:flex;align-items:center;gap:13px;padding:14px 18px;border-radius:16px;
+  background:rgba(13,22,50,.82);border:1px solid rgba(255,255,255,.14);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  box-shadow:0 24px 60px -18px rgba(4,10,32,.85);color:#fff}
+.fc-eta{left:-72px;top:104px;animation:bob 7s ease-in-out infinite}
+.fc-rev{right:-58px;bottom:132px;animation:bob 8s ease-in-out -3s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.fc-ico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.fc-eta .fc-ico{background:rgba(47,227,194,.16);color:#4BF0CE}
+.fc-rev .fc-ico{background:rgba(91,108,255,.2);color:#9FB0FF}
+.fc-txt .t1{font-size:.82rem;font-weight:700;letter-spacing:-.01em}
+.fc-txt .t2{font-size:.7rem;color:#8B97BA;margin-top:1px}
+.mini-bars{display:flex;align-items:flex-end;gap:3px;height:26px}
+.mini-bars i{width:6px;border-radius:3px;background:var(--grad-brand);opacity:.85}
+.mini-bars i:nth-child(odd){opacity:.5}
+
+/* ============================================================
+   SOCIAL PROOF / LOGO MARQUEE
+   ============================================================ */
+.logos{background:var(--bg-light);border-bottom:1px solid var(--border-light);padding:clamp(48px,6vw,68px) 0}
+.logos-title{text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8B94B0;margin-bottom:34px}
+.marquee{overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;align-items:center;gap:clamp(44px,6vw,76px);padding-right:clamp(44px,6vw,76px)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.logo-item{display:flex;align-items:center;gap:10px;font-size:1.06rem;font-weight:800;letter-spacing:-.02em;color:#3E4763;opacity:.62;transition:opacity .3s,color .3s,transform .3s;white-space:nowrap}
+.logo-item:hover{opacity:1;color:var(--text-dark);transform:translateY(-2px)}
+.logo-item svg{flex:none;opacity:.8}
+.logos-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;margin-top:36px;font-size:.86rem;color:var(--muted-dark)}
+.logos-meta span{display:inline-flex;align-items:center;gap:8px;font-weight:550}
+.logos-meta svg{color:var(--brand)}
+
+/* ============================================================
+   FEATURES (light)
+   ============================================================ */
+.features{background:var(--bg-light);position:relative}
+.features .eyebrow{color:var(--brand);background:rgba(91,108,255,.08);border:1px solid rgba(91,108,255,.18)}
+.features .h2{color:var(--text-dark)}
+.features .lede{color:var(--muted-dark)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat-card{position:relative;background:var(--card-light);border:1px solid var(--border-light);border-radius:var(--r-lg);padding:30px 28px;overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s}
+.feat-card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .45s;
+  background:radial-gradient(420px 200px at 20% -10%,rgba(91,108,255,.09),transparent 70%)}
+.feat-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:rgba(91,108,255,.35)}
+.feat-card:hover::before{opacity:1}
+.icon-tile{position:relative;width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  background:var(--grad-brand-soft);border:1px solid rgba(91,108,255,.22);color:var(--brand-deep);
+  transition:transform .45s var(--ease-spring),box-shadow .45s}
+.feat-card:hover .icon-tile{transform:translateY(-3px) rotate(-5deg) scale(1.07);box-shadow:0 12px 26px -10px rgba(91,108,255,.45)}
+.feat-card h3{font-size:1.14rem;font-weight:750;color:var(--text-dark);margin-bottom:11px;letter-spacing:-.02em}
+.feat-card p{font-size:.94rem;color:var(--muted-dark);line-height:1.68}
+.feat-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.88rem;font-weight:700;color:var(--brand-deep);opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.feat-card:hover .feat-link,.feat-card:focus-within .feat-link{opacity:1;transform:none}
+.feat-link svg{transition:transform .3s}
+.feat-link:hover svg{transform:translateX(3px)}
+
+/* ============================================================
+   PRODUCT SHOWCASE (dark, tabs)
+   ============================================================ */
+.showcase{background:linear-gradient(180deg,var(--ink-950) 0%,var(--ink-900) 45%,var(--ink-950) 100%);overflow:hidden}
+.showcase .eyebrow{color:#8F9EFF;background:rgba(91,108,255,.1);border:1px solid rgba(91,108,255,.25)}
+.showcase .h2{color:#fff}
+.showcase .lede{color:var(--muted-light)}
+.showcase .glow{position:absolute;top:-140px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(91,108,255,.16),transparent 65%);filter:blur(70px);pointer-events:none}
+.tabs{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:6px;border-radius:16px;margin:0 auto 54px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);max-width:100%;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.tab{padding:11px 22px;border-radius:11px;font-size:.93rem;font-weight:650;color:var(--muted-light);display:inline-flex;align-items:center;gap:9px;transition:all .35s var(--ease);white-space:nowrap}
+.tab svg{opacity:.7;transition:opacity .3s}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{background:var(--grad-brand);color:#fff;box-shadow:0 10px 28px -10px rgba(91,108,255,.6)}
+.tab[aria-selected="true"] svg{opacity:1}
+.show-panel{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,72px);align-items:center}
+.show-panel[hidden]{display:none}
+.show-copy h3{font-size:clamp(1.5rem,2.6vw,2.1rem);color:#fff;font-weight:800;margin-bottom:18px;letter-spacing:-.03em}
+.show-copy>p{color:var(--muted-light);font-size:1.02rem;line-height:1.72;margin-bottom:26px}
+.check-list{display:flex;flex-direction:column;gap:15px;margin-bottom:30px}
+.check-list li{display:flex;gap:13px;align-items:flex-start;font-size:.97rem;color:#DDE5FF;line-height:1.55}
+.check-list .ck{flex:none;width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  background:rgba(47,227,194,.13);border:1px solid rgba(47,227,194,.3);color:#4BF0CE}
+.check-list b{color:#fff;font-weight:700}
+.show-note{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:#8B97BA;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.14)}
+.show-note svg{color:var(--aqua);flex:none}
+.screen{position:relative;border-radius:20px;border:1px solid rgba(255,255,255,.11);overflow:hidden;
+  background:linear-gradient(180deg,#0E1836,#0A1128);box-shadow:0 36px 100px -30px rgba(4,10,32,.9);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.panel-anim{opacity:0;transform:translateY(16px) scale(.985)}
+.show-panel.is-active .screen{opacity:1;transform:none}
+.show-panel.is-active .panel-anim{opacity:1;transform:none}
+.screen-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02)}
+.screen-bar .sb-title{display:flex;align-items:center;gap:9px;font-size:.82rem;font-weight:700;color:#E4EAFF}
+.screen-bar .sb-title svg{color:#8F9EFF}
+.screen-body{padding:20px}
+/* Kanban */
+.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kan-col{background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:12px;min-width:0}
+.kan-col .kan-title{display:flex;align-items:center;justify-content:space-between;font-size:.68rem;font-weight:750;letter-spacing:.09em;text-transform:uppercase;color:#8B97BA;padding:2px 4px 10px}
+.kan-col .kan-title i{font-style:normal;font-size:.62rem;background:rgba(255,255,255,.08);border-radius:5px;padding:2px 7px}
+.kan-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:11px 12px;margin-bottom:9px;transition:transform .3s var(--ease),border-color .3s;cursor:grab}
+.kan-card:hover{transform:translateY(-3px) rotate(-.6deg);border-color:rgba(91,108,255,.5)}
+.kan-card .kc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}
+.kan-card .kc-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;color:#9FB0FF;font-weight:700}
+.kan-card .kc-cust{font-size:.78rem;font-weight:650;color:#E4EAFF;margin-bottom:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kan-card .kc-meta{display:flex;align-items:center;gap:8px;font-size:.66rem;color:#7B87AC}
+.kan-card .kc-meta .avatars{display:flex}
+.kan-card .kc-meta .avatar{width:20px;height:20px;font-size:.56rem;border:2px solid #101A3A;margin-left:-6px}
+.kan-card .kc-meta .avatar:first-child{margin-left:0}
+/* Map */
+.map-wrap{position:relative}
+.map-svg{width:100%;height:auto}
+.route-line{stroke-dasharray:5 8;animation:dashmove 3.2s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-52}}
+.map-node circle.core{animation:nodepulse 3s ease-in-out infinite}
+@keyframes nodepulse{0%,100%{r:5}50%{r:6.5}}
+.map-label{font-family:var(--font);font-size:11px;font-weight:700;fill:#8B97BA;letter-spacing:.08em}
+.ship-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.ship-mini{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:11px 12px}
+.ship-mini .sm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.ship-mini .sm-id{font-family:ui-monospace,Menlo,monospace;font-size:.64rem;color:#9FB0FF;font-weight:700}
+.ship-mini .sm-city{font-size:.72rem;color:#C6CFF0;font-weight:600}
+.ship-mini .sm-eta{font-size:.62rem;color:#7B87AC}
+/* Customer profile */
+.cust-profile{display:grid;grid-template-columns:1fr;gap:14px}
+.cust-head{display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.cust-head .avatar{width:46px;height:46px;font-size:1rem}
+.cust-head .ch-nm{font-size:.95rem;font-weight:750;color:#fff}
+.cust-head .ch-rl{font-size:.74rem;color:#8B97BA}
+.cust-tags{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tag-mini{font-size:.62rem;font-weight:750;padding:4px 9px;border-radius:6px;letter-spacing:.03em}
+.tag-vip{color:#FFD37A;background:rgba(255,176,32,.14)}
+.tag-ok{color:#4BF0CE;background:rgba(34,197,139,.13)}
+.timeline{position:relative;padding:6px 0 2px 6px}
+.timeline::before{content:"";position:absolute;left:17px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,rgba(91,108,255,.5),rgba(47,227,194,.4));border-radius:2px}
+.tl-item{position:relative;display:flex;gap:14px;align-items:flex-start;padding:8px 0 8px 10px}
+.tl-item .tl-dot{position:relative;z-index:1;width:20px;height:20px;border-radius:50%;background:#0E1836;border:2px solid #5B6CFF;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
+.tl-item .tl-dot i{width:6px;height:6px;border-radius:50%;background:#5B6CFF}
+.tl-item:last-child .tl-dot{border-color:#2FE3C2}
+.tl-item:last-child .tl-dot i{background:#2FE3C2}
+.tl-item .tl-tx{font-size:.8rem;color:#C6CFF0;line-height:1.45}
+.tl-item .tl-tx b{color:#fff}
+.tl-item .tl-dt{font-size:.64rem;color:#7B87AC;margin-top:2px}
+.ring-row{display:flex;align-items:center;gap:16px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ring-txt .rt-v{font-size:1.05rem;font-weight:800;color:#fff}
+.ring-txt .rt-l{font-size:.7rem;color:#8B97BA}
+/* Purchasing */
+.po-tbl{width:100%;border-collapse:collapse;font-size:.78rem}
+.po-tbl th{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#5F6D96;font-weight:750;text-align:left;padding:6px 10px}
+.po-tbl td{padding:11px 10px;border-top:1px solid rgba(255,255,255,.055);color:#C6CFF0;white-space:nowrap}
+.po-tbl .sup{display:flex;align-items:center;gap:9px;font-weight:600;color:#DDE5FF}
+.spend-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.spend-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+.spend-card .sp-l{font-size:.66rem;color:#8B97BA;font-weight:650;text-transform:uppercase;letter-spacing:.07em}
+.spend-card .sp-v{font-size:.98rem;font-weight:800;color:#fff;margin:5px 0 8px;letter-spacing:-.02em}
+.spend-card .sp-d{font-size:.64rem;font-weight:700;color:#4BF0CE}
+
+/* ============================================================
+   BENEFITS (light)
+   ============================================================ */
+.benefits{background:linear-gradient(180deg,var(--bg-light) 0%,#FFFFFF 100%)}
+.benefits .eyebrow{color:#0E9C8A;background:rgba(47,227,194,.1);border:1px solid rgba(47,227,194,.3)}
+.benefit-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,84px);align-items:center}
+.hub-visual{position:relative}
+.hub-visual .screen{background:linear-gradient(180deg,#0E1836,#0A1128)}
+.hub-orbit{position:absolute;z-index:7;border-radius:14px;padding:10px 15px;display:flex;align-items:center;gap:9px;
+  background:rgba(13,22,50,.88);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 20px 50px -16px rgba(4,10,32,.85);font-size:.78rem;font-weight:700;color:#fff;animation:bob 8s ease-in-out infinite}
+.hub-orbit-tr{top:36px;right:-6px;animation-delay:-2s}
+.hub-orbit-bl{bottom:30px;left:-10px;animation-delay:-5s}
+@media (max-width:940px){
+  .hub-orbit-tr{right:8px}
+  .hub-orbit-bl{left:8px}
+}
+.hub-orbit svg{flex:none}
+.benefit-list{display:flex;flex-direction:column;gap:8px}
+.benefit-item{display:flex;gap:22px;padding:24px 22px;border-radius:18px;transition:background .35s,box-shadow .35s,transform .35s var(--ease)}
+.benefit-item:hover{background:#fff;box-shadow:var(--shadow-md);transform:translateX(6px)}
+.benefit-num{font-size:1.5rem;font-weight:850;letter-spacing:-.04em;line-height:1;
+  background:linear-gradient(135deg,#5B6CFF,#2FE3C2);-webkit-background-clip:text;background-clip:text;color:transparent;flex:none;width:52px;padding-top:4px}
+.benefit-item h3{font-size:1.12rem;font-weight:750;color:var(--text-dark);margin-bottom:8px;letter-spacing:-.02em}
+.benefit-item p{font-size:.93rem;color:var(--muted-dark);line-height:1.66}
+
+/* ============================================================
+   STATS BAND (dark)
+   ============================================================ */
+.stats-band{position:relative;background:linear-gradient(120deg,var(--ink-850),var(--ink-950));overflow:hidden}
+.stats-band::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(600px 300px at 15% 20%,rgba(91,108,255,.16),transparent 60%),radial-gradient(600px 300px at 85% 80%,rgba(47,227,194,.12),transparent 60%)}
+.stats-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat{ text-align:center;padding:34px 18px;border-radius:20px;
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  transition:transform .45s var(--ease),border-color .45s,background .45s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(47,227,194,.4);background:rgba(47,227,194,.05)}
+.stat .num{font-size:clamp(2.2rem,4vw,3.1rem);font-weight:850;letter-spacing:-.04em;color:#fff;line-height:1;
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{margin-top:12px;font-size:.88rem;color:var(--muted-light);font-weight:550}
+
+/* ============================================================
+   TESTIMONIALS (light)
+   ============================================================ */
+.testimonials{background:#FFFFFF;position:relative}
+.testimonials .eyebrow{color:#B07A00;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.3)}
+.t-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+.t-col{display:flex;flex-direction:column;gap:22px}
+.t-card{position:relative;background:var(--card-light);border:1px solid var(--border-light);border-radius:var(--r-lg);padding:32px;overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s}
+.t-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(91,108,255,.3)}
+.t-card::after{content:"”";position:absolute;top:-26px;right:14px;font-size:9rem;font-weight:900;line-height:1;
+  background:var(--grad-brand-soft);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9;font-family:Georgia,serif}
+.t-featured{display:flex;flex-direction:column;justify-content:center;min-height:320px}
+.t-featured .quote{font-size:clamp(1.15rem,1.9vw,1.5rem);font-weight:650;line-height:1.55;letter-spacing:-.02em;color:var(--text-dark)}
+.stars{display:flex;gap:3px;margin-bottom:18px}
+.stars svg{color:#FFB020}
+.t-foot{display:flex;align-items:center;gap:14px;margin-top:26px}
+.t-foot .avatar{width:46px;height:46px;font-size:.9rem}
+.t-foot .tf-nm{font-size:.95rem;font-weight:750;color:var(--text-dark);letter-spacing:-.01em}
+.t-foot .tf-rl{font-size:.82rem;color:var(--muted-dark)}
+.t-badge{margin-left:auto;font-size:.68rem;font-weight:750;color:var(--brand-deep);background:rgba(91,108,255,.09);border:1px solid rgba(91,108,255,.2);padding:5px 11px;border-radius:99px;white-space:nowrap}
+.t-card .quote{font-size:1rem;color:#3D4663;line-height:1.7}
+
+/* ============================================================
+   PRICING (light)
+   ============================================================ */
+.pricing{background:linear-gradient(180deg,#FFFFFF,var(--bg-light));position:relative}
+.pricing .eyebrow{color:var(--brand);background:rgba(91,108,255,.08);border:1px solid rgba(91,108,255,.18)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.price-card{position:relative;display:flex;flex-direction:column;background:var(--card-light);border:1px solid var(--border-light);border-radius:24px;padding:36px 32px;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s}
+.price-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.price-card.popular{background:linear-gradient(180deg,#0E1836,#0A1128);border-color:rgba(91,108,255,.5);box-shadow:0 30px 80px -28px rgba(30,45,110,.55);z-index:1}
+.price-card.popular:hover{box-shadow:0 40px 96px -28px rgba(50,70,160,.65)}
+.free-card{max-width:680px;margin:0 auto}
+.free-feats{display:grid;grid-template-columns:1fr 1fr;gap:13px 26px}
+.free-note{margin-top:18px;font-size:.8rem;color:#8B97BA;text-align:center;line-height:1.6}
+@media (max-width:640px){.free-feats{grid-template-columns:1fr}}
+.pop-flag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--grad-brand);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:7px 18px;border-radius:99px;box-shadow:0 8px 24px -8px rgba(91,108,255,.7);white-space:nowrap}
+.price-tier{font-size:1.02rem;font-weight:800;letter-spacing:-.02em;color:var(--text-dark)}
+.price-desc{font-size:.86rem;color:var(--muted-dark);margin-top:6px;min-height:40px}
+.price-row{display:flex;align-items:flex-end;gap:8px;margin:22px 0 4px}
+.price-cur{font-size:1.3rem;font-weight:750;color:var(--muted-dark);padding-bottom:9px}
+.price-card.popular .price-cur{color:var(--muted-light)}
+.price-num{font-size:3.3rem;font-weight:850;letter-spacing:-.05em;line-height:1;color:var(--text-dark);font-variant-numeric:tabular-nums}
+.price-card.popular .price-num{color:#fff}
+.price-per{font-size:.9rem;color:var(--muted-dark);padding-bottom:8px}
+.price-card.popular .price-per{color:var(--muted-light)}
+.price-billed{font-size:.78rem;color:var(--muted-dark);min-height:20px;margin-bottom:24px;font-weight:550}
+.price-card.popular .price-billed{color:#8B97BA}
+.price-sep{height:1px;background:var(--border-light);margin:0 -8px 24px}
+.price-card.popular .price-sep{background:rgba(255,255,255,.1)}
+.price-feats{display:flex;flex-direction:column;gap:13px;margin-bottom:32px;flex:1}
+.price-feats li{display:flex;gap:11px;align-items:flex-start;font-size:.92rem;color:#3D4663;line-height:1.5}
+.price-card.popular .price-feats li{color:#C6CFF0}
+.price-feats .ck{flex:none;width:21px;height:21px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  background:rgba(34,197,139,.12);color:#0E9C8A;border:1px solid rgba(34,197,139,.3)}
+.price-card.popular .price-feats .ck{background:rgba(47,227,194,.14);color:#4BF0CE;border-color:rgba(47,227,194,.35)}
+.price-card .btn{width:100%}
+.price-foot{text-align:center;margin-top:40px;font-size:.88rem;color:var(--muted-dark)}
+.price-foot b{color:var(--text-dark)}
+
+/* ============================================================
+   FAQ (light)
+   ============================================================ */
+.faq{background:var(--bg-light)}
+.faq .eyebrow{color:var(--brand);background:rgba(91,108,255,.08);border:1px solid rgba(91,108,255,.18)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--card-light);border:1px solid var(--border-light);border-radius:18px;overflow:hidden;transition:border-color .35s,box-shadow .35s}
+.faq-item:hover{border-color:rgba(91,108,255,.35)}
+.faq-item.open{border-color:rgba(91,108,255,.5);box-shadow:var(--shadow-md)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;text-align:left;
+  padding:22px 26px;font-size:1.02rem;font-weight:700;color:var(--text-dark);letter-spacing:-.015em;transition:color .3s}
+.faq-q:hover{color:var(--brand-deep)}
+.faq-icon{flex:none;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(91,108,255,.08);border:1px solid rgba(91,108,255,.2);color:var(--brand-deep);
+  transition:transform .45s var(--ease-spring),background .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--grad-brand);color:#fff;border-color:transparent}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 26px 24px;color:var(--muted-dark);font-size:.96rem;line-height:1.72;max-width:660px}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cta-band{background:var(--ink-950);padding:clamp(80px,9vw,130px) 0}
+.cta-panel{position:relative;overflow:hidden;border-radius:32px;padding:clamp(48px,7vw,88px) clamp(26px,6vw,80px);text-align:center;
+  background:linear-gradient(125deg,#101C42 0%,#0B1531 55%,#0D1F3E 100%);
+  border:1px solid rgba(255,255,255,.12);box-shadow:0 50px 130px -40px rgba(28,48,120,.7)}
+.cta-panel::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;top:-380px;left:50%;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(91,108,255,.4),rgba(47,227,194,.12) 55%,transparent 70%);filter:blur(50px);animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.8;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
+.cta-panel::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(600px 340px at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(600px 340px at 50% 0%,#000,transparent 75%)}
+.cta-panel>*{position:relative;z-index:2}
+.cta-panel h2{font-size:clamp(2rem,4.4vw,3.2rem);color:#fff;font-weight:850;letter-spacing:-.035em;margin-bottom:20px}
+.cta-panel .lede{color:var(--muted-light);max-width:600px;margin:0 auto 40px}
+.cta-micro{font-size:.84rem;color:#8B97BA}
+.cta-micro b{color:#DDE5FF}
+.cta-avatars{display:flex;justify-content:center;margin-bottom:22px}
+.cta-avatars .avatar{width:44px;height:44px;font-size:.85rem;border:3px solid #101C42;margin-left:-12px}
+.cta-avatars .avatar:first-child{margin-left:0}
+.cta-avatars .plus{width:44px;height:44px;border-radius:50%;border:3px solid #101C42;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#DDE5FF;margin-left:-12px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.07);padding:clamp(60px,7vw,90px) 0 34px;position:relative}
+.footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(720px,80%);height:1px;
+  background:linear-gradient(90deg,transparent,rgba(91,108,255,.6),rgba(47,227,194,.6),transparent)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:clamp(28px,4vw,48px);margin-bottom:60px}
+.footer-brand p{color:var(--muted-light);font-size:.92rem;line-height:1.7;margin:18px 0 24px;max-width:300px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--muted-light);
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);transition:all .35s var(--ease)}
+.footer-social a:hover{color:#fff;background:var(--grad-brand);border-color:transparent;transform:translateY(-3px);box-shadow:var(--shadow-glow)}
+.footer-col h3{font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#DDE5FF;margin-bottom:20px}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{font-size:.9rem;color:var(--muted-light);transition:color .25s,padding-left .3s;position:relative}
+.footer-col a:hover{color:#fff;padding-left:6px}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);font-size:.84rem;color:#8B97BA}
+.footer-bottom .fb-badges{display:flex;gap:18px;flex-wrap:wrap}
+.footer-bottom .fb-badges span{display:inline-flex;align-items:center;gap:7px}
+.footer-bottom svg{color:var(--aqua)}
+
+/* Back to top */
+.to-top{position:fixed;right:22px;bottom:22px;z-index:900;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,17,40,.85);border:1px solid rgba(255,255,255,.16);color:#fff;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 14px 38px -12px rgba(4,10,32,.7);
+  opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;
+  transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s,border-color .3s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--grad-brand);border-color:transparent}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .float-card{display:none}
+  .dash-body{grid-template-columns:180px 1fr}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;row-gap:40px}
+  .footer-grid .footer-col:last-child{grid-column:span 1}
+}
+@media (max-width:940px){
+  .nav-links,.nav-actions .btn-ghost{display:none}
+  .nav-burger{display:block}
+  .mobile-menu{display:block}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .show-panel{grid-template-columns:1fr;gap:34px}
+  .benefit-wrap{grid-template-columns:1fr;gap:48px}
+  .hub-visual{max-width:560px;margin:0 auto}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .t-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .price-card.popular{transform:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .dash-body{grid-template-columns:1fr}
+  .dash-side{display:none}
+  .dash-grid{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kanban{grid-template-columns:1fr 1fr}
+  .kan-col:last-child{display:none}
+  .tbl .hide-sm,.po-tbl .hide-sm{display:none}
+  .hero-ctas .btn{flex:1 1 auto}
+  .ship-strip{grid-template-columns:1fr 1fr}
+  .spend-row{grid-template-columns:1fr 1fr 1fr}
+  .tabs{border-radius:14px}
+  .tab{padding:10px 16px;font-size:.88rem}
+  .tab span{display:none}
+}
+@media (max-width:560px){
+  .features-grid{grid-template-columns:1fr}
+  .kanban{grid-template-columns:1fr}
+  .kan-col:last-child{display:block}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .stat{padding:24px 12px}
+  .hero-badge{font-size:.78rem}
+  .hero-badge .txt{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chips{display:none}
+  .footer-grid{grid-template-columns:1fr}
+  .faq-q{padding:18px 20px;font-size:.95rem}
+  .benefit-item{gap:14px;padding:20px 16px}
+  .benefit-num{width:40px}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  [data-reveal]{opacity:1!important;transform:none!important;filter:none!important}
+  .marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}
+  .bar>span{width:var(--w,60%)!important}
+  .chart-line{stroke-dashoffset:0!important}
+  .chart-area,.chart-line-2{opacity:1!important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Myhublogistic — home">
+      <svg class="brand-mark" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="gLogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#2FE3C2"/></linearGradient></defs>
+        <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#gLogo)"/>
+        <path d="M12 28 L20 20 L28 12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="28" r="3.2" fill="#fff"/>
+        <circle cx="28" cy="12" r="3.2" fill="#fff" stroke="#2FE3C2" stroke-width="1.6"/>
+      </svg>
+      <span class="brand-name">Myhub<b>logistic</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#platform">Platform</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm" href="app/index.html">Open app</a>
+      <a class="btn btn-primary btn-sm" href="app/index.html">Open app
+        <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a class="m-link" href="#features">Features <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="m-link" href="#platform">Platform <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="m-link" href="#benefits">Benefits <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="m-link" href="#pricing">Pricing <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="m-link" href="#faq">FAQ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <div class="m-cta">
+        <a class="btn btn-ghost" href="app/index.html">Open app</a>
+        <a class="btn btn-primary" href="app/index.html">Get started free</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <a class="hero-badge" href="#platform" data-reveal>
+        <span class="tag">New</span>
+        <span class="txt">AI-powered ETA predictions are live</span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <h1 data-reveal style="--d:1">Every order, every mile.<br><span class="grad-text">One intelligent hub.</span></h1>
+      <p class="lede" data-reveal style="--d:2">Myhublogistic brings orders, purchasing, customers, and live tracking together in one beautifully simple platform — so your team moves faster, errors vanish, and every delivery arrives on promise.</p>
+      <div class="hero-ctas" data-reveal style="--d:3">
+        <a class="btn btn-primary btn-lg" href="app/index.html">Get started free
+          <svg class="ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#platform">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+          Watch 2-min demo
+        </a>
+      </div>
+      <p class="hero-trust" data-reveal style="--d:4">
+        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Everything free, for now</span>
+        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>No email or credit card</span>
+        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Set up in minutes</span>
+      </p>
+    </div>
+
+    <!-- Dashboard mockup -->
+    <div class="hero-visual" id="hero-visual" data-reveal="zoom" style="--d:5">
+      <div class="dash" role="img" aria-label="Preview of the Myhublogistic operations dashboard showing KPIs, a revenue chart, live fleet status and recent orders">
+        <div class="dash-chrome">
+          <div class="dash-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="dash-url">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            app.myhublogistic.com/overview
+          </div>
+          <span class="dash-live"><span class="live-dot" aria-hidden="true"></span>Live</span>
+        </div>
+        <div class="dash-body">
+          <aside class="dash-side" aria-hidden="true">
+            <span class="side-label">Workspace</span>
+            <span class="side-item active"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg>Overview</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4L7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>Orders</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 6H5.12"/></svg>Purchasing</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Customers</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tracking</span>
+            <div class="side-sep"></div>
+            <span class="side-label">Analytics</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Insights</span>
+            <span class="side-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Automations</span>
+            <div class="side-user">
+              <span class="avatar avatar-1">TH</span>
+              <span><span class="nm">Thiri Han<br><span class="rl">Ops Manager</span></span></span>
+            </div>
+          </aside>
+          <div class="dash-main">
+            <div class="dash-head">
+              <div>
+                <div class="dash-title">Operations overview</div>
+                <div class="sub">Tuesday, 8 September · Yangon HQ</div>
+              </div>
+              <div class="chips" aria-hidden="true">
+                <span class="chip">Today</span>
+                <span class="chip active">7 days</span>
+                <span class="chip">30 days</span>
+              </div>
+              <span class="mini-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>New order</span>
+            </div>
+            <div class="kpis">
+              <div class="kpi">
+                <div class="k-label">Revenue</div>
+                <div class="k-row"><span class="k-val">$128.4K</span>
+                  <svg width="52" height="22" viewBox="0 0 52 22" fill="none" aria-hidden="true"><path d="M1 17 L9 14 L17 15 L25 9 L33 11 L41 5 L51 3" stroke="#5B6CFF" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span class="k-delta up">▲ 12.4%</span>
+              </div>
+              <div class="kpi">
+                <div class="k-label">On-time rate</div>
+                <div class="k-row"><span class="k-val">96.8%</span>
+                  <svg width="52" height="22" viewBox="0 0 52 22" fill="none" aria-hidden="true"><path d="M1 15 L9 16 L17 12 L25 13 L33 8 L41 9 L51 4" stroke="#2FE3C2" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span class="k-delta up">▲ 3.1%</span>
+              </div>
+              <div class="kpi">
+                <div class="k-label">Active orders</div>
+                <div class="k-row"><span class="k-val">1,284</span>
+                  <svg width="52" height="22" viewBox="0 0 52 22" fill="none" aria-hidden="true"><path d="M1 13 L9 15 L17 10 L25 12 L33 7 L41 10 L51 6" stroke="#38C8F4" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span class="k-delta up">▲ 8.7%</span>
+              </div>
+              <div class="kpi">
+                <div class="k-label">Avg. cycle time</div>
+                <div class="k-row"><span class="k-val">1.8 d</span>
+                  <svg width="52" height="22" viewBox="0 0 52 22" fill="none" aria-hidden="true"><path d="M1 5 L9 7 L17 6 L25 10 L33 13 L41 15 L51 17" stroke="#FFB020" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span class="k-delta down">▼ 9.2% faster</span>
+              </div>
+            </div>
+            <div class="dash-grid">
+              <div class="panel">
+                <div class="panel-head">
+                  <div class="ph-title">Shipments &amp; revenue</div>
+                  <div class="legend"><span><i class="lg-brand"></i>Revenue</span><span><i class="lg-aqua"></i>Shipments</span></div>
+                </div>
+                <div class="chart-wrap">
+                  <div class="chart-tip"><b>$412,850</b>Nov 24 · <span class="up-t">▲ 18% vs LW</span></div>
+                  <svg viewBox="0 0 560 232" fill="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B6CFF" stop-opacity=".38"/><stop offset="1" stop-color="#5B6CFF" stop-opacity="0"/></linearGradient>
+                    </defs>
+                    <g stroke="rgba(255,255,255,.06)"><path d="M0 46H560"/><path d="M0 100H560"/><path d="M0 154H560"/><path d="M0 208H560"/></g>
+                    <path class="chart-area" fill="url(#gArea)" d="M0 182 C42 176 62 158 92 160 S150 116 182 112 S242 138 272 106 S332 58 362 68 S430 38 470 26 S540 40 560 22 L560 232 L0 232 Z"/>
+                    <path class="chart-line" stroke="#7C8CFF" stroke-width="3" stroke-linecap="round" d="M0 182 C42 176 62 158 92 160 S150 116 182 112 S242 138 272 106 S332 58 362 68 S430 38 470 26 S540 40 560 22"/>
+                    <path class="chart-line-2" stroke="#2FE3C2" stroke-width="2.4" stroke-linecap="round" d="M0 200 C52 196 70 186 100 184 S160 158 196 152 S252 168 288 142 S348 108 384 112 S446 84 484 74 S544 82 560 64"/>
+                    <circle cx="470" cy="26" r="5" fill="#7C8CFF"/><circle cx="470" cy="26" r="10" fill="#7C8CFF" opacity=".2"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-head"><div class="ph-title">Live fleet</div><span class="dash-live"><span class="live-dot" aria-hidden="true"></span>14 moving</span></div>
+                <div class="fleet-row">
+                  <div class="fleet-item">
+                    <span class="fleet-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="5" width="14" height="11" rx="2"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg></span>
+                    <span style="min-width:0"><span class="f-route">Yangon → Mandalay</span><span class="f-id">MH-1024 · 312 km left</span><span class="bar"><span style="--w:64%"></span></span></span>
+                    <span class="eta ok">On time</span>
+                  </div>
+                  <div class="fleet-item">
+                    <span class="fleet-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="5" width="14" height="11" rx="2"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg></span>
+                    <span style="min-width:0"><span class="f-route">Yangon → Naypyidaw</span><span class="f-id">MH-1031 · 96 km left</span><span class="bar"><span style="--w:82%"></span></span></span>
+                    <span class="eta ok">On time</span>
+                  </div>
+                  <div class="fleet-item">
+                    <span class="fleet-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V8l6-4v16"/><path d="M14 12h6v8"/><path d="M14 8h2"/><path d="M17 8v2"/><path d="M7 9h1M7 12h1M7 15h1"/></svg></span>
+                    <span style="min-width:0"><span class="f-route">Port yard · Container B-22</span><span class="f-id">MH-2088 · loading</span><span class="bar"><span style="--w:38%"></span></span></span>
+                    <span class="eta warn">Hold 20m</span>
+                  </div>
+                  <div class="fleet-item">
+                    <span class="fleet-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="M12 2l4 6H8z" fill="currentColor" opacity=".3"/><path d="M17 8l4 4-4 4"/><path d="M7 8l-4 4 4 4"/></svg></span>
+                    <span style="min-width:0"><span class="f-route">Bangkok → Yangon</span><span class="f-id">MH-4012 · customs cleared</span><span class="bar"><span style="--w:91%"></span></span></span>
+                    <span class="eta ok">On time</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><div class="ph-title">Recent orders</div><span class="mini-btn" aria-hidden="true">View all</span></div>
+              <table class="tbl">
+                <thead><tr><th>Order</th><th class="hide-sm">Customer</th><th>Route</th><th class="hide-sm">Progress</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td class="o-id">#MH-2847</td><td class="hide-sm">Aurora Mart</td><td><span class="route-cell"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>YYZ→MDY</span></td><td class="hide-sm"><span class="bar" style="margin:0;width:90px"><span style="--w:100%"></span></span></td><td><span class="pill ok"><i></i>Delivered</span></td></tr>
+                  <tr><td class="o-id">#MH-2846</td><td class="hide-sm">Blue Anchor Retail</td><td><span class="route-cell"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>RGN→NYT</span></td><td class="hide-sm"><span class="bar" style="margin:0;width:90px"><span style="--w:78%"></span></span></td><td><span class="pill move"><i></i>In transit</span></td></tr>
+                  <tr><td class="o-id">#MH-2845</td><td class="hide-sm">Summit Foods</td><td><span class="route-cell"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>BKK→RGN</span></td><td class="hide-sm"><span class="bar" style="margin:0;width:90px"><span style="--w:24%"></span></span></td><td><span class="pill proc"><i></i>Processing</span></td></tr>
+                  <tr><td class="o-id">#MH-2844</td><td class="hide-sm">Dragon Line Co.</td><td><span class="route-cell"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>RGN→SIN</span></td><td class="hide-sm"><span class="bar" style="margin:0;width:90px"><span style="--w:45%"></span></span></td><td><span class="pill move"><i></i>In transit</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card fc-eta" aria-hidden="true">
+        <span class="fc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span class="fc-txt"><span class="t1">ETA updated · live</span><span class="t2">Order #MH-2841 · 12 min earlier</span></span>
+      </div>
+      <div class="float-card fc-rev" aria-hidden="true">
+        <span class="fc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
+        <span class="fc-txt"><span class="t1">+24% this week</span><span class="t2">Revenue vs last week</span></span>
+        <span class="mini-bars" aria-hidden="true"><i style="height:9px"></i><i style="height:14px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:24px"></i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOCIAL PROOF ================= -->
+<section class="logos" aria-label="Trusted by leading logistics teams">
+  <div class="container">
+    <p class="logos-title" data-reveal>Trusted by 4,200+ teams that move the world</p>
+    <div class="marquee" data-reveal style="--d:1">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="M12 2v20"/><path d="M4 4l16 16"/></svg>NORDWIND</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>CargoLanes</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>SwiftHaul</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"/></svg>MERIDIAN</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg>OmniRoute</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16s2-9 10-9 10 9 10 9"/><path d="M5 19s1.5-5 7-5 7 5 7 5"/></svg>BlueAnchor</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>TransGulf</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>VelocityX</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="M12 2v20"/><path d="M4 4l16 16"/></svg>NORDWIND</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>CargoLanes</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>SwiftHaul</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"/></svg>MERIDIAN</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg>OmniRoute</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16s2-9 10-9 10 9 10 9"/><path d="M5 19s1.5-5 7-5 7 5 7 5"/></svg>BlueAnchor</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>TransGulf</span>
+          <span class="logo-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>VelocityX</span>
+        </div>
+      </div>
+    </div>
+    <div class="logos-meta" data-reveal style="--d:2">
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg>4.9/5 average rating</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SOC 2 Type II certified</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Active in 120+ countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>Platform</span>
+      <h2 class="h2" data-reveal style="--d:1">Everything your operation needs.<br><span class="grad-text">Nothing it doesn't.</span></h2>
+      <p class="lede" data-reveal style="--d:2">Four command centers, one source of truth. Replace the patchwork of spreadsheets, chat groups, and legacy tools with a platform built for how modern logistics actually works.</p>
+    </div>
+    <div class="features-grid">
+      <article class="feat-card" data-reveal style="--d:1">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4L7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></span>
+        <h3>Order Management</h3>
+        <p>Create, assign, and fulfill orders in one flow. Automated status updates, bulk actions, and smart exception alerts keep every order on rails — from checkout to doorstep.</p>
+        <span class="feat-link">Explore orders <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="feat-card" data-reveal style="--d:2">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 6H5.12"/></svg></span>
+        <h3>Purchase Management</h3>
+        <p>Raise POs in seconds, compare suppliers, and control spend with approval flows and budget thresholds. Procurement that finally keeps pace with operations.</p>
+        <span class="feat-link">Explore purchasing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="feat-card" data-reveal style="--d:3">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Customer Hub</h3>
+        <p>A 360° view of every customer — contacts, order history, preferences, and conversations in one timeline. Delight them with context, not guesswork.</p>
+        <span class="feat-link">Explore customers <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="feat-card" data-reveal style="--d:1">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3>Live Tracking</h3>
+        <p>Follow every shipment in real time with GPS telemetry, geofence alerts, and AI-precise ETAs shared automatically with customers — before they even ask.</p>
+        <span class="feat-link">Explore tracking <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="feat-card" data-reveal style="--d:2">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        <h3>Insights &amp; Reports</h3>
+        <p>Live dashboards for revenue, margin, carrier performance, and delivery SLAs. Know exactly where the money — and the minutes — actually go.</p>
+        <span class="feat-link">Explore insights <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="feat-card" data-reveal style="--d:3">
+        <span class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <h3>Automations &amp; Integrations</h3>
+        <p>Trigger workflows on any event and connect your entire stack — Shopify, ERPs, WMS, WhatsApp notifications, and 60+ integrations. Zero glue code.</p>
+        <span class="feat-link">Explore automations <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT SHOWCASE ================= -->
+<section class="section showcase" id="platform">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>Product tour</span>
+      <h2 class="h2" data-reveal style="--d:1">One platform. <span class="grad-text">Four command centers.</span></h2>
+      <p class="lede" data-reveal style="--d:2">Take a look inside. Every module speaks to the others, so data entered once flows everywhere it's needed.</p>
+    </div>
+    <div style="text-align:center">
+      <div class="tabs" role="tablist" aria-label="Platform modules" data-reveal>
+        <button class="tab" id="tab-orders" role="tab" aria-selected="true" aria-controls="panel-orders">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4L7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg><span>Orders</span>
+        </button>
+        <button class="tab" id="tab-tracking" role="tab" aria-selected="false" aria-controls="panel-tracking" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Tracking</span>
+        </button>
+        <button class="tab" id="tab-customers" role="tab" aria-selected="false" aria-controls="panel-customers" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Customers</span>
+        </button>
+        <button class="tab" id="tab-purchasing" role="tab" aria-selected="false" aria-controls="panel-purchasing" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 6H5.12"/></svg><span>Purchasing</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel: Orders -->
+    <div class="show-panel is-active" id="panel-orders" role="tabpanel" aria-labelledby="tab-orders">
+      <div class="show-copy" data-reveal="left">
+        <h3>Orchestrate every order with zero chaos</h3>
+        <p>A visual pipeline that mirrors how your warehouse actually works. Drag orders through stages, split shipments with a click, and let exceptions surface themselves — before customers notice.</p>
+        <ul class="check-list">
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Drag-and-drop fulfillment pipeline</b> — from intake to delivery, with SLA timers on every stage.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Bulk assign &amp; split shipments</b> — one order, multiple carriers, still one source of truth.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Smart exception alerts</b> — delays, failed deliveries, and stuck orders ping the right owner instantly.</span></li>
+        </ul>
+        <span class="show-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Teams process orders 6× faster after switching from spreadsheets</span>
+      </div>
+      <div class="screen panel-anim" aria-hidden="true">
+        <div class="screen-bar">
+          <span class="sb-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4L7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Order pipeline · 1,284 active</span>
+          <span class="dash-live"><span class="live-dot"></span>Synced</span>
+        </div>
+        <div class="screen-body">
+          <div class="kanban">
+            <div class="kan-col">
+              <div class="kan-title">New intake <i>18</i></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2901</span><span class="pill proc"><i></i>New</span></div><div class="kc-cust">Aurora Mart · 240 items</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-1">AM</span></span>RGN hub</div></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2900</span><span class="pill proc"><i></i>New</span></div><div class="kc-cust">Summit Foods · pallet ×3</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-2">SF</span></span>BKK inbound</div></div>
+            </div>
+            <div class="kan-col">
+              <div class="kan-title">In transit <i>42</i></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2846</span><span class="pill move"><i></i>78%</span></div><div class="kc-cust">Blue Anchor Retail</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-3">BA</span><span class="avatar avatar-4">KL</span></span>RGN → NYT</div></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2844</span><span class="pill move"><i></i>45%</span></div><div class="kc-cust">Dragon Line Co.</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-2">DL</span></span>RGN → SIN</div></div>
+            </div>
+            <div class="kan-col">
+              <div class="kan-title">Delivered <i>126</i></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2847</span><span class="pill ok"><i></i>Done</span></div><div class="kc-cust">Aurora Mart · on time</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-1">AM</span></span>POD signed</div></div>
+              <div class="kan-card"><div class="kc-top"><span class="kc-id">#MH-2842</span><span class="pill ok"><i></i>Done</span></div><div class="kc-cust">Golden Land Freight</div><div class="kc-meta"><span class="avatars"><span class="avatar avatar-4">GL</span></span>POD signed</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel: Tracking -->
+    <div class="show-panel" id="panel-tracking" role="tabpanel" aria-labelledby="tab-tracking" hidden>
+      <div class="show-copy">
+        <h3>Watch your world move in real time</h3>
+        <p>Every vehicle, container, and courier on one live map. Geofences detect arrivals automatically, and AI ETAs are shared with customers the moment they change.</p>
+        <ul class="check-list">
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Live GPS map with geofencing</b> — know the second a shipment enters or leaves any zone.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>AI ETAs customers can trust</b> — recalculated continuously from traffic, weather, and stop history.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Proof of delivery capture</b> — signatures, photos, and timestamps attached to every order.</span></li>
+        </ul>
+        <span class="show-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>"Where is my order?" calls drop by 71% on average</span>
+      </div>
+      <div class="screen panel-anim" aria-hidden="true">
+        <div class="screen-bar">
+          <span class="sb-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Live tracking · Southeast Asia</span>
+          <span class="dash-live"><span class="live-dot"></span>14 vehicles</span>
+        </div>
+        <div class="screen-body">
+          <div class="map-wrap">
+            <svg class="map-svg" viewBox="0 0 560 330" fill="none" aria-hidden="true">
+              <defs>
+                <radialGradient id="gMapGlow" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#5B6CFF" stop-opacity=".12"/><stop offset="1" stop-color="#5B6CFF" stop-opacity="0"/></radialGradient>
+                <linearGradient id="gRouteMain" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#2FE3C2"/></linearGradient>
+              </defs>
+              <rect width="560" height="330" rx="12" fill="url(#gMapGlow)"/>
+              <g fill="rgba(255,255,255,.05)">
+                <circle cx="90" cy="70" r="34"/><circle cx="480" cy="90" r="42"/><circle cx="300" cy="250" r="52"/><circle cx="140" cy="280" r="30"/><circle cx="420" cy="270" r="24"/>
+              </g>
+              <g stroke="rgba(255,255,255,.07)"><path d="M0 110H560"/><path d="M0 210H560"/><path d="M140 0V330"/><path d="M420 0V330"/></g>
+              <path class="route-line" d="M96 236 Q160 130 268 96 T470 110" stroke="url(#gRouteMain)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+              <path class="route-line" d="M96 236 Q150 320 268 268" stroke="#38C8F4" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/>
+              <path class="route-line" d="M268 96 Q380 160 470 214" stroke="#5B6CFF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".75"/>
+              <path class="route-line" d="M268 268 Q360 240 470 214" stroke="#2FE3C2" stroke-width="2" fill="none" stroke-linecap="round" opacity=".75"/>
+              <g>
+                <circle cx="96" cy="236" r="14" fill="#5B6CFF" opacity=".18"/><circle class="core" cx="96" cy="236" r="5" fill="#5B6CFF" stroke="#fff" stroke-width="1.4"/>
+                <text class="map-label" x="72" y="264">RGN</text>
+                <circle cx="268" cy="96" r="14" fill="#38C8F4" opacity=".18"/><circle class="core" cx="268" cy="96" r="5" fill="#38C8F4" stroke="#fff" stroke-width="1.4" style="animation-delay:.4s"/>
+                <text class="map-label" x="284" y="84">BKK</text>
+                <circle cx="268" cy="268" r="14" fill="#2FE3C2" opacity=".18"/><circle class="core" cx="268" cy="268" r="5" fill="#2FE3C2" stroke="#fff" stroke-width="1.4" style="animation-delay:.8s"/>
+                <text class="map-label" x="284" y="290">SIN</text>
+                <circle cx="470" cy="110" r="14" fill="#5B6CFF" opacity=".18"/><circle class="core" cx="470" cy="110" r="5" fill="#8F9EFF" stroke="#fff" stroke-width="1.4" style="animation-delay:1.2s"/>
+                <text class="map-label" x="484" y="100">DEL</text>
+                <circle cx="470" cy="214" r="14" fill="#FFB020" opacity=".18"/><circle class="core" cx="470" cy="214" r="5" fill="#FFB020" stroke="#fff" stroke-width="1.4" style="animation-delay:1.6s"/>
+                <text class="map-label" x="484" y="238">DXB</text>
+              </g>
+              <g>
+                <circle r="7" fill="#fff"/><circle r="7" fill="#fff" opacity="0"><animate attributeName="opacity" values="0;.35;0" dur="2.2s" repeatCount="indefinite"/><animate attributeName="r" values="7;18" dur="2.2s" repeatCount="indefinite"/></circle>
+                <animateMotion dur="12s" repeatCount="indefinite" path="M96 236 Q160 130 268 96 T470 110"/>
+              </g>
+              <g>
+                <rect x="-9" y="-9" width="18" height="18" rx="5" fill="#5B6CFF" stroke="#0A1128" stroke-width="2"/>
+                <path d="M-4 1h8M-1 -2l-3 3 3 3" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <animateMotion dur="9s" repeatCount="indefinite" path="M96 236 Q150 320 268 268"/>
+              </g>
+            </svg>
+            <div class="ship-strip">
+              <div class="ship-mini"><div class="sm-top"><span class="sm-id">MH-1024</span><span class="eta ok">On time</span></div><span class="sm-city">RGN → MDY</span><div class="sm-eta">ETA 16:40 · 312 km</div><div class="bar" style="margin-top:6px"><span style="--w:64%"></span></div></div>
+              <div class="ship-mini"><div class="sm-top"><span class="sm-id">MH-4012</span><span class="eta ok">On time</span></div><span class="sm-city">BKK → RGN</span><div class="sm-eta">ETA 19:05 · customs ✓</div><div class="bar" style="margin-top:6px"><span style="--w:91%"></span></div></div>
+              <div class="ship-mini"><div class="sm-top"><span class="sm-id">MH-5118</span><span class="eta warn">+25 min</span></div><span class="sm-city">RGN → SIN</span><div class="sm-eta">ETA 22:10 · storm delay</div><div class="bar" style="margin-top:6px"><span style="--w:38%"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel: Customers -->
+    <div class="show-panel" id="panel-customers" role="tabpanel" aria-labelledby="tab-customers" hidden>
+      <div class="show-copy">
+        <h3>Know every customer like your first</h3>
+        <p>Profiles, order history, invoices, and conversations unified into one living timeline. Your team answers in seconds, and customers feel the difference.</p>
+        <ul class="check-list">
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Unified profiles &amp; timelines</b> — every order, quote, and message in one scroll.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Segments &amp; loyalty insights</b> — spot your top accounts and at-risk ones, automatically.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Self-service tracking portal</b> — customers check status themselves, any time, on any device.</span></li>
+        </ul>
+        <span class="show-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>CSAT scores rise by an average of 21 points in the first quarter</span>
+      </div>
+      <div class="screen panel-anim" aria-hidden="true">
+        <div class="screen-bar">
+          <span class="sb-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Customer · Aurora Mart</span>
+          <span class="pill ok"><i></i>Healthy account</span>
+        </div>
+        <div class="screen-body">
+          <div class="cust-profile">
+            <div class="cust-head">
+              <span class="avatar avatar-1">AM</span>
+              <span><span class="ch-nm">Aurora Mart</span><br><span class="ch-rl">Retail chain · 14 stores · Yangon</span></span>
+              <span class="cust-tags"><span class="tag-mini tag-vip">VIP · Tier 1</span><span class="tag-mini tag-ok">96% on-time</span></span>
+            </div>
+            <div class="timeline">
+              <div class="tl-item"><span class="tl-dot"><i></i></span><span><span class="tl-tx"><b>Order #MH-2847 delivered</b> — signed by store manager, rated ★★★★★</span><br><span class="tl-dt">Today · 14:32</span></span></div>
+              <div class="tl-item"><span class="tl-dot"><i></i></span><span><span class="tl-tx"><b>Invoice #INV-1042 paid</b> — $8,420 via bank transfer</span><br><span class="tl-dt">Yesterday · 09:15</span></span></div>
+              <div class="tl-item"><span class="tl-dot"><i></i></span><span><span class="tl-tx"><b>Recurring order created</b> — weekly replenishment, frozen goods lane</span><br><span class="tl-dt">Sep 2 · 11:03</span></span></div>
+              <div class="tl-item"><span class="tl-dot"><i></i></span><span><span class="tl-tx"><b>Account opened</b> — onboarded in 26 minutes</span><br><span class="tl-dt">Mar 18</span></span></div>
+            </div>
+            <div class="ring-row">
+              <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+                <circle cx="32" cy="32" r="26" stroke="rgba(255,255,255,.1)" stroke-width="7" fill="none"/>
+                <circle cx="32" cy="32" r="26" stroke="#2FE3C2" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="14" transform="rotate(-90 32 32)"/>
+                <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="14" font-weight="800" font-family="inherit">91</text>
+              </svg>
+              <span class="ring-txt"><span class="rt-v">91 / 100 health score</span><br><span class="rt-l">Relationship strength · up 12 this month</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel: Purchasing -->
+    <div class="show-panel" id="panel-purchasing" role="tabpanel" aria-labelledby="tab-purchasing" hidden>
+      <div class="show-copy">
+        <h3>Procurement that keeps the shelves full</h3>
+        <p>Purchase orders, supplier scorecards, and spend analytics in the same place as your orders — so buying decisions are made with real-time demand, not last month's guesses.</p>
+        <ul class="check-list">
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>POs in seconds</b> — templates, auto-filled SKUs, and one-click approvals on any device.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Supplier scorecards</b> — on-time %, quality, and pricing tracked automatically, per vendor.</span></li>
+          <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Budget guardrails</b> — thresholds, multi-level approvals, and live spend vs. budget views.</span></li>
+        </ul>
+        <span class="show-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Customers report an average 17% reduction in procurement costs</span>
+      </div>
+      <div class="screen panel-anim" aria-hidden="true">
+        <div class="screen-bar">
+          <span class="sb-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 6H5.12"/></svg>Purchase orders · September</span>
+          <span class="mini-btn">+ New PO</span>
+        </div>
+        <div class="screen-body">
+          <table class="po-tbl">
+            <thead><tr><th>PO</th><th class="hide-sm">Supplier</th><th>Amount</th><th class="hide-sm">Budget</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="o-id">#PO-0392</td><td><span class="sup"><span class="avatar avatar-3" style="width:26px;height:26px;font-size:.6rem">GF</span>Golden Farms</span></td><td>$12,480</td><td class="hide-sm">Cold chain</td><td><span class="pill ok"><i></i>Approved</span></td></tr>
+              <tr><td class="o-id">#PO-0391</td><td><span class="sup"><span class="avatar avatar-1" style="width:26px;height:26px;font-size:.6rem">PP</span>PackPros Ltd.</span></td><td>$6,150</td><td class="hide-sm">Packaging</td><td><span class="pill move"><i></i>In review</span></td></tr>
+              <tr><td class="o-id">#PO-0390</td><td><span class="sup"><span class="avatar avatar-2" style="width:26px;height:26px;font-size:.6rem">TM</span>ThaiMart Global</span></td><td>$28,900</td><td class="hide-sm">Dry goods</td><td><span class="pill proc"><i></i>Quote cmp.</span></td></tr>
+              <tr><td class="o-id">#PO-0389</td><td><span class="sup"><span class="avatar avatar-4" style="width:26px;height:26px;font-size:.6rem">SL</span>SafeLine Cargo</span></td><td>$4,220</td><td class="hide-sm">Fleet parts</td><td><span class="pill ok"><i></i>Approved</span></td></tr>
+            </tbody>
+          </table>
+          <div class="spend-row">
+            <div class="spend-card"><div class="sp-l">Spend MTD</div><div class="sp-v">$51.7K</div><div class="sp-d">▼ 8% vs plan</div></div>
+            <div class="spend-card"><div class="sp-l">Open POs</div><div class="sp-v">23</div><div class="sp-d">4 awaiting approval</div></div>
+            <div class="spend-card"><div class="sp-l">Top supplier</div><div class="sp-v">98.2%</div><div class="sp-d">on-time · Golden Farms</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="section benefits" id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>Why Myhublogistic</span>
+      <h2 class="h2" data-reveal style="--d:1">Built to pay for itself <span class="grad-text">in weeks, not years</span></h2>
+      <p class="lede" data-reveal style="--d:2">One hub connecting orders, purchasing, customers, and tracking doesn't just look organized — it compounds into measurably faster, cheaper, calmer operations.</p>
+    </div>
+    <div class="benefit-wrap">
+      <div class="hub-visual" data-reveal="left">
+        <div class="screen" aria-hidden="true">
+          <div class="screen-bar">
+            <span class="sb-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 10 10M12 22A10 10 0 0 1 2 12"/></svg>Myhub network</span>
+            <span class="dash-live"><span class="live-dot"></span>4 modules · synced</span>
+          </div>
+          <div class="screen-body" style="padding:26px 20px 30px">
+            <svg viewBox="0 0 520 400" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="gHubCore" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#2FE3C2"/></linearGradient>
+                <linearGradient id="gHubLink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B6CFF" stop-opacity=".7"/><stop offset="1" stop-color="#2FE3C2" stop-opacity=".7"/></linearGradient>
+              </defs>
+              <circle cx="260" cy="200" r="150" stroke="rgba(255,255,255,.07)" stroke-dasharray="3 8"/>
+              <circle cx="260" cy="200" r="104" stroke="rgba(255,255,255,.09)" stroke-dasharray="3 8"/>
+              <path class="route-line" d="M260 200 L260 66" stroke="url(#gHubLink)" stroke-width="2"/>
+              <path class="route-line" d="M260 200 L388 260" stroke="url(#gHubLink)" stroke-width="2"/>
+              <path class="route-line" d="M260 200 L132 260" stroke="url(#gHubLink)" stroke-width="2"/>
+              <path class="route-line" d="M260 200 L260 334" stroke="url(#gHubLink)" stroke-width="2"/>
+              <circle cx="260" cy="200" r="46" fill="#5B6CFF" opacity=".1"/>
+              <circle cx="260" cy="200" r="46" stroke="url(#gHubCore)" stroke-width="1.6" fill="#0E1836"/>
+              <text x="260" y="196" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" font-family="inherit">Myhub</text>
+              <text x="260" y="214" text-anchor="middle" fill="#8B97BA" font-size="10" font-weight="600" font-family="inherit">core</text>
+              <circle cx="260" cy="66" r="24" fill="#0E1836" stroke="#5B6CFF" stroke-width="1.6"/>
+              <text x="260" y="70" text-anchor="middle" fill="#DDE5FF" font-size="11" font-weight="700" font-family="inherit">🧾</text>
+              <text x="260" y="32" text-anchor="middle" fill="#8B97BA" font-size="11" font-weight="700" font-family="inherit" letter-spacing="1.5">ORDERS</text>
+              <circle cx="388" cy="260" r="24" fill="#0E1836" stroke="#FFB020" stroke-width="1.6"/>
+              <text x="388" y="264" text-anchor="middle" fill="#DDE5FF" font-size="11" font-weight="700" font-family="inherit">🛒</text>
+              <text x="388" y="308" text-anchor="middle" fill="#8B97BA" font-size="11" font-weight="700" font-family="inherit" letter-spacing="1.5">PURCHASE</text>
+              <circle cx="132" cy="260" r="24" fill="#0E1836" stroke="#38C8F4" stroke-width="1.6"/>
+              <text x="132" y="264" text-anchor="middle" fill="#DDE5FF" font-size="11" font-weight="700" font-family="inherit">👥</text>
+              <text x="132" y="308" text-anchor="middle" fill="#8B97BA" font-size="11" font-weight="700" font-family="inherit" letter-spacing="1.5">CUSTOMERS</text>
+              <circle cx="260" cy="334" r="24" fill="#0E1836" stroke="#2FE3C2" stroke-width="1.6"/>
+              <text x="260" y="338" text-anchor="middle" fill="#DDE5FF" font-size="11" font-weight="700" font-family="inherit">📍</text>
+              <text x="260" y="376" text-anchor="middle" fill="#8B97BA" font-size="11" font-weight="700" font-family="inherit" letter-spacing="1.5">TRACKING</text>
+              <g>
+                <circle r="4" fill="#2FE3C2"><animateMotion dur="5s" repeatCount="indefinite" path="M260 66 L260 200"/></circle>
+                <circle r="4" fill="#5B6CFF"><animateMotion dur="6s" repeatCount="indefinite" path="M132 260 L260 200"/></circle>
+                <circle r="4" fill="#38C8F4"><animateMotion dur="7s" repeatCount="indefinite" path="M388 260 L260 200"/></circle>
+                <circle r="4" fill="#FFB020"><animateMotion dur="6.5s" repeatCount="indefinite" path="M260 334 L260 200"/></circle>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <span class="hub-orbit hub-orbit-tr">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4BF0CE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Zero duplicate data entry
+        </span>
+        <span class="hub-orbit hub-orbit-bl">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9FB0FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+          Every module in sync
+        </span>
+      </div>
+      <div class="benefit-list">
+        <div class="benefit-item" data-reveal="right" style="--d:1">
+          <span class="benefit-num">01</span>
+          <div>
+            <h3>Cut fulfillment time by 38%</h3>
+            <p>Automation removes the handoffs — orders flow to dispatch, purchasing, and notifications without a single copy-paste. What took an hour takes minutes.</p>
+          </div>
+        </div>
+        <div class="benefit-item" data-reveal="right" style="--d:2">
+          <span class="benefit-num">02</span>
+          <div>
+            <h3>Eliminate costly errors</h3>
+            <p>One source of truth means no more version conflicts, missed shipments, or double orders. Every change is tracked, attributed, and reversible.</p>
+          </div>
+        </div>
+        <div class="benefit-item" data-reveal="right" style="--d:3">
+          <span class="benefit-num">03</span>
+          <div>
+            <h3>Delight every customer</h3>
+            <p>Proactive updates and a self-service tracking portal turn "where is my order?" into "wow, they already told me." CSAT climbs, churn falls.</p>
+          </div>
+        </div>
+        <div class="benefit-item" data-reveal="right" style="--d:4">
+          <span class="benefit-num">04</span>
+          <div>
+            <h3>Scale without growing overhead</h3>
+            <p>Double your shipment volume without doubling your back office. Myhublogistic absorbs complexity so your team can stay lean and fast.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS BAND ================= -->
+<section class="section stats-band" aria-label="Myhublogistic by the numbers">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat" data-reveal style="--d:1">
+        <div class="num"><span data-counter data-target="4200" data-decimals="0">0</span>+</div>
+        <div class="lbl">Logistics teams run on Myhublogistic</div>
+      </div>
+      <div class="stat" data-reveal style="--d:2">
+        <div class="num"><span data-counter data-target="38" data-decimals="0">0</span>%</div>
+        <div class="lbl">Faster order cycles after 90 days</div>
+      </div>
+      <div class="stat" data-reveal style="--d:3">
+        <div class="num"><span data-counter data-target="99.98" data-decimals="2">0</span>%</div>
+        <div class="lbl">Platform uptime, 12-month average</div>
+      </div>
+      <div class="stat" data-reveal style="--d:4">
+        <div class="num">$<span data-counter data-target="2.4" data-decimals="1">0</span>B</div>
+        <div class="lbl">Shipments tracked every year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>Customer stories</span>
+      <h2 class="h2" data-reveal style="--d:1">Loved by the teams <span class="grad-text">behind the trucks</span></h2>
+      <p class="lede" data-reveal style="--d:2">From family-owned fleets to global 3PLs — here's what happens when operations finally click.</p>
+    </div>
+    <div class="t-grid">
+      <article class="t-card t-featured" data-reveal>
+        <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg>
+        </div>
+        <blockquote class="quote">"It's the first tool our whole team actually loves. Dispatchers, finance, sales — everyone lives in Myhublogistic now. Month-end closing went from days to hours, and our on-time rate has never been higher."</blockquote>
+        <footer class="t-foot">
+          <span class="avatar avatar-4">EM</span>
+          <span><span class="tf-nm">Elena Marchetti</span><br><span class="tf-rl">VP Logistics · Nordwind Freight, Milan</span></span>
+          <span class="t-badge">2.1M shipments/yr</span>
+        </footer>
+      </article>
+      <div class="t-col">
+        <article class="t-card" data-reveal style="--d:1">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg>
+          </div>
+          <p class="quote">We cut order processing from 40 minutes to 6. Myhublogistic didn't just replace our spreadsheets — it replaced the chaos.</p>
+          <footer class="t-foot">
+            <span class="avatar avatar-1">ZW</span>
+            <span><span class="tf-nm">Zaw Win Htun</span><br><span class="tf-rl">COO · Golden Land Freight, Yangon</span></span>
+          </footer>
+        </article>
+        <article class="t-card" data-reveal style="--d:2">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.3l-4.75 4.4 1.15 6.55L12 17l-5.9 3.25L7.25 13.7 2.5 9.3l6.6-1.04z"/></svg>
+          </div>
+          <p class="quote">Live tracking alone paid for the platform in a month. "Where is my order?" calls dropped 71% — our support team finally breathes.</p>
+          <footer class="t-foot">
+            <span class="avatar avatar-3">PR</span>
+            <span><span class="tf-nm">Priya Raghavan</span><br><span class="tf-rl">Head of Ops · CargoLanes, Singapore</span></span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>Pricing</span>
+      <h2 class="h2" data-reveal style="--d:1">Everything is free. <span class="grad-text">Right now.</span></h2>
+      <p class="lede" data-reveal style="--d:2">While we're in launch mode, every Myhublogistic feature is unlocked for every team — no tiers, no trials, no timers. Paid plans will arrive later, and everyone who joins now locks in founding-member perks.</p>
+    </div>
+    <article class="price-card popular free-card" data-reveal="zoom" style="--d:2">
+      <span class="pop-flag">Free while we launch</span>
+      <h3 class="price-tier" style="color:#fff">Full access</h3>
+      <p class="price-desc" style="color:var(--muted-light)">Every module, every feature, every integration — unlocked for every team during launch. Nothing held back.</p>
+      <div class="price-row"><span class="price-cur">$</span><span class="price-num">0</span><span class="price-per">forever-ish</span></div>
+      <p class="price-billed">$0 today · no email, no credit card, no limits</p>
+      <div class="price-sep"></div>
+      <ul class="price-feats free-feats">
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Unlimited users &amp; unlimited orders</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Order &amp; fulfillment pipeline</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Purchasing, POs &amp; supplier scorecards</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Customer hub &amp; self-service tracking</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Live GPS tracking &amp; AI ETAs</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Automations &amp; 60+ integrations</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Analytics dashboards &amp; exports</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Priority support for everyone</li>
+      </ul>
+      <a class="btn btn-primary btn-lg" href="app/index.html">Get started — free right now
+        <svg class="ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="free-note">Paid plans arrive later — teams that join during launch lock in founding-member pricing forever.</p>
+    </article>
+    <p class="price-foot" data-reveal>All features unlocked · <b>No email required</b> · Paid plans arrive later — founding teams keep their perks</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>FAQ</span>
+      <h2 class="h2" data-reveal style="--d:1">Questions, <span class="grad-text">answered</span></h2>
+      <p class="lede" data-reveal style="--d:2">Everything teams usually ask before switching. Still curious? <a href="#cta" style="color:var(--brand-deep);font-weight:650">Talk to us</a> — a human replies within hours.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-reveal>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a1">
+          How long does it take to get started?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a1"><div><p>Most teams are running the same day. Import customers, products, and open orders from CSV or directly from Shopify, Excel, or your ERP in a guided flow. Our onboarding checklist and templates mean your first order can be live in under an hour — no consultants required.</p></div></div>
+      </div>
+      <div class="faq-item" data-reveal style="--d:1">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a2">
+          Does Myhublogistic integrate with my existing tools?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a2"><div><p>Yes — 60+ native integrations including Shopify, WooCommerce, SAP, Odoo, QuickBooks, Xero, and major WMS platforms, plus WhatsApp and SMS notifications. For anything else, a documented REST API, webhooks, and Zapier support have you covered.</p></div></div>
+      </div>
+      <div class="faq-item" data-reveal style="--d:2">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a3">
+          Can I track shipments without GPS hardware in my fleet?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a3"><div><p>Absolutely. Myhublogistic pulls live status from 800+ carriers and courier APIs worldwide, and driver apps (iOS/Android) turn any smartphone into a tracking beacon. For owned fleets, our GPS device support adds second-by-second telemetry and geofencing.</p></div></div>
+      </div>
+      <div class="faq-item" data-reveal style="--d:3">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a4">
+          How is my data secured?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a4"><div><p>All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We're SOC 2 Type II certified and ISO 27001 aligned, with daily encrypted backups, role-based access control, granular audit logs, and optional data residency in the EU, US, or APAC. You can export or delete your data at any time.</p></div></div>
+      </div>
+      <div class="faq-item" data-reveal style="--d:4">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a5">
+          Do you support multiple currencies, languages, and countries?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a5"><div><p>Yes. Myhublogistic works in 135+ currencies, 12 languages, and localizes tax invoices, number formats, and date formats per user. Cross-border teams love that a dispatcher in Yangon and an accountant in Singapore see the same order — each in their own context.</p></div></div>
+      </div>
+      <div class="faq-item" data-reveal style="--d:5">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a6">
+          Is it really free? What happens when paid plans arrive?
+          <span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" id="faq-a6"><div><p>Yes — during launch, every feature is 100% free for every team, and you don't even need an email address to get started. Paid tiers will arrive later for large-scale needs, with plenty of notice — and teams who join now lock in founding-member perks. Nothing will ever be charged without your explicit opt-in.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-band" id="cta">
+  <div class="container">
+    <div class="cta-panel" data-reveal="zoom">
+      <div class="cta-avatars" aria-hidden="true">
+        <span class="avatar avatar-1">AM</span><span class="avatar avatar-2">SF</span><span class="avatar avatar-3">PR</span><span class="avatar avatar-4">EM</span><span class="plus">+4.2K</span>
+      </div>
+      <h2>Ready to put your logistics<br><span class="grad-text">on autopilot?</span></h2>
+      <p class="lede">Join 4,200+ teams already running smoother on Myhublogistic. Your future self — calm, organized, on-time — says hi.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="app/index.html">Get started — free right now
+          <svg class="ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#platform">Take the product tour</a>
+      </div>
+      <p class="cta-micro"><b>No email needed</b> · No credit card · Every feature unlocked · Paid plans come later</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Myhublogistic — home">
+          <svg class="brand-mark" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+            <defs><linearGradient id="gLogoF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B6CFF"/><stop offset="1" stop-color="#2FE3C2"/></linearGradient></defs>
+            <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#gLogoF)"/>
+            <path d="M12 28 L20 20 L28 12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="28" r="3.2" fill="#fff"/>
+            <circle cx="28" cy="12" r="3.2" fill="#fff" stroke="#2FE3C2" stroke-width="1.6"/>
+          </svg>
+          <span class="brand-name">Myhub<b>logistic</b></span>
+        </a>
+        <p>The operating system for modern logistics — orders, purchasing, customers, and tracking in one intelligent hub. Built with love in Yangon, Singapore &amp; Rotterdam.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Myhublogistic on X (Twitter)"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.2l7.3-8.3L2.8 2h6.4l4.4 5.9L18.9 2zm-1.1 18h1.7L7.1 3.8H5.3L17.8 20z"/></svg></a>
+          <a href="#" aria-label="Myhublogistic on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+          <a href="#" aria-label="Myhublogistic on YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+          <a href="#" aria-label="Myhublogistic on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.78 1.05.78 2.12v3.14c0 .3.2.66.79.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+        </div>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#platform">Platform tour</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Roadmap</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers <span style="font-size:.66rem;color:#4BF0CE;font-weight:700;background:rgba(47,227,194,.12);padding:2px 7px;border-radius:99px;margin-left:4px">Hiring</span></a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press kit</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API reference</a></li>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">System status</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">DPA</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Myhublogistic Pte. Ltd. All rights reserved.</span>
+      <div class="fb-badges">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SOC 2 Type II</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>GDPR ready</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>120+ countries</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Pause decorative SVG animations when motion is reduced */
+  if (reduceMotion) {
+    $$('svg').forEach(function (s) { try { s.pauseAnimations(); } catch (e) {} });
+  }
+
+  /* ---------- Navbar state + back-to-top ---------- */
+  var nav = $('#nav');
+  var toTop = $('#to-top');
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('is-scrolled', y > 24);
+    toTop.classList.toggle('show', y > 700);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var burger = $('#nav-burger');
+  var mobileMenu = $('#mobile-menu');
+  function closeMenu() {
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open navigation menu');
+    mobileMenu.classList.remove('is-open');
+  }
+  burger.addEventListener('click', function () {
+    var open = burger.getAttribute('aria-expanded') === 'true';
+    if (open) { closeMenu(); }
+    else {
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Close navigation menu');
+      mobileMenu.classList.add('is-open');
+    }
+  });
+  $$('#mobile-menu a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { closeMenu(); burger.focus(); }
+  });
+
+  /* ---------- Scroll reveals (staggered) ---------- */
+  var revealEls = $$('[data-reveal]');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Animated counters ---------- */
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-target')) || 0;
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var dur = 1800;
+    var t0 = null;
+    function fmt(v) {
+      return v.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    }
+    if (reduceMotion) { el.textContent = fmt(target); return; }
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 4);
+      el.textContent = fmt(target * e);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = $$('[data-counter]');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animateCounter(entry.target); cio.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { cio.observe(el); });
+  } else {
+    counters.forEach(animateCounter);
+  }
+
+  /* ---------- Showcase tabs ---------- */
+  var tabs = $$('.tab');
+  var panels = $$('.show-panel');
+  function selectTab(tab) {
+    tabs.forEach(function (t) {
+      var sel = t === tab;
+      t.setAttribute('aria-selected', sel ? 'true' : 'false');
+      t.setAttribute('tabindex', sel ? '0' : '-1');
+    });
+    panels.forEach(function (p) {
+      var active = p.id === tab.getAttribute('aria-controls');
+      p.hidden = !active;
+      if (active) {
+        void p.offsetWidth; /* restart transitions */
+        p.classList.remove('is-active');
+        void p.offsetWidth;
+        p.classList.add('is-active');
+      }
+    });
+  }
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () { selectTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var i = tabs.indexOf(tab);
+      var next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); next.focus(); selectTab(next); }
+    });
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  $$('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      $$('.faq-item.open').forEach(function (openItem) {
+        openItem.classList.remove('open');
+        $('.faq-q', openItem).setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ---------- Hero tilt (pointer-fine devices only) ---------- */
+  var heroVisual = $('#hero-visual');
+  var dash = $('.dash');
+  if (heroVisual && dash && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    var raf = null;
+    heroVisual.addEventListener('pointermove', function (e) {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var r = heroVisual.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        dash.style.transform = 'rotateX(' + (-y * 4).toFixed(2) + 'deg) rotateY(' + (x * 5).toFixed(2) + 'deg)';
+      });
+    });
+    heroVisual.addEventListener('pointerleave', function () {
+      dash.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  }
+
+  /* ---------- Footer year ---------- */
+  var yearEl = $('#year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+})();
+</script>
+</body>
+</html>
